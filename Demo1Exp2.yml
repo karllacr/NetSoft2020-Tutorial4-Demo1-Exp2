@@ -694,6 +694,9 @@
         - name  : Run Open5GS MONGO-DB container
           shell:  docker run -ti -d -p {{ mongo_db_host_access_port }}:{{ mongo_db_container_expose_port }} --net {{ docker_custom_network_name }} --ip {{ ip_address_MONGO_DB }} --name {{ MONGO_DB_container_name }} {{ open5gs_mongodb_image_name }} bash
 
+        - name  : Wait container start
+          shell : sleep 10
+        
         - name  : Start MongoDB
           shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "/etc/init.d/mongodb start"
           
