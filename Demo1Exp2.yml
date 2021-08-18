@@ -797,7 +797,7 @@
         - pause :
             seconds: 3
 
-        #- name  : Creating data directory
+        #- name  : Creating data directory #add by karlla 2021-08-18
         #  shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "cd .. && mkdir data && cd data/ && mkdir db && cd .. && cd .. && /etc/init.d/mongodb start" 
             
         - name  : Login - WEBUI container
