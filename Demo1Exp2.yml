@@ -695,8 +695,7 @@
           shell:  docker run -ti -d -p {{ mongo_db_host_access_port }}:{{ mongo_db_container_expose_port }} --net {{ docker_custom_network_name }} --ip {{ ip_address_MONGO_DB }} --name {{ MONGO_DB_container_name }} {{ open5gs_mongodb_image_name }} bash
 
         - name  : Start MongoDB
-          #shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "/etc/init.d/mongodb start"
-          shell : docker exec -d {{ MONGO_DB_container_name }} "service mongodb start"
+          shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "/etc/init.d/mongodb start"
           
         - name  : Run Open5GS WEBUI container
           shell : docker run -ti -d -e "DB_URI=mongodb://{{ ip_address_MONGO_DB }}:{{ mongo_db_container_expose_port }}/open5gs"  -p {{ web_application_access_port }}:3000 --net {{ docker_custom_network_name }} --ip {{ ip_address_WEB_UI }} --name {{ WEB_UI_container_name }} {{ open5gs_webui_image_name }} bash
