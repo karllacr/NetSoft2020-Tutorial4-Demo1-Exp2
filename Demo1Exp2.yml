@@ -694,8 +694,8 @@
         - name  : Run Open5GS MONGO-DB container
           shell:  docker run -ti -d -p {{ mongo_db_host_access_port }}:{{ mongo_db_container_expose_port }} --net {{ docker_custom_network_name }} --ip {{ ip_address_MONGO_DB }} --name {{ MONGO_DB_container_name }} {{ open5gs_mongodb_image_name }} bash
         
-        - name  : Repair MongoDB
-          shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "mongod --repair"
+        - name  : Create data path  MongoDB
+          shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "mkdir /data && mkdir /data/db"
 
         - name  : Start MongoDB
           shell : docker exec {{ MONGO_DB_container_name }} /bin/sh -c "/etc/init.d/mongodb start"
