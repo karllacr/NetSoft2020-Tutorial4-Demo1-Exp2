@@ -14,8 +14,8 @@
         ip_address_OAISIM_UE: '192.186.4.254'
 
         EPC_container_name: 'epc'
-        mongo_db_host_access_port: '27018'
-        mongo_db_container_expose_port: '27018'
+        mongo_db_host_access_port: '27017'
+        mongo_db_container_expose_port: '27017'
         open5gs_epc_image_name: 'laboraufg/epc-open5gs'
         oaisim_enb_image_name: 'laboraufg/enb-openairsim'
         oaisim_ue_image_name: 'laboraufg/ue-openairsim'
